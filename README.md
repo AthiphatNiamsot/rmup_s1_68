@@ -9,9 +9,7 @@ Athiphat Niamsot
 - Prisma
 - Vscode
 - sgreSQL extensions (Chris Kolkman)
-## Develop 
-```bash
-```
+
 ## Frist time
 ```
 npx prisma init --datasource-provider postgresql
