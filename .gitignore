@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 .env
 node_modules/
 /generated/prisma/
 
-=======
-node_modules
-/generated/prisma
-.env
->>>>>>> b19785747b57c5c45d6e970cad827c7cd831ccc9
