@@ -3,5 +3,5 @@ import app from "./index";
 
 serve(app, (info) => {
     console.log(`server is running on ${info.port}`);
-    
+
 });
