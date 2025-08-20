@@ -2,6 +2,15 @@
 
 Athiphat Niamsot
 
+## Required
+- git
+- Docker & Docker compose
+- ProgresSql
+- Node.js
+- Prisma
+- Vscode
+
+
 ## Running
 ### Database
 ```
