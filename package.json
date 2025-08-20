@@ -1,14 +1,11 @@
 {
   "dependencies": {
-<<<<<<< HEAD
     "@hono/node-server": "^1.19.0",
     "@prisma/client": "^6.14.0",
     "hono": "^4.9.2",
     "prisma": "^6.14.0",
     "ts-node": "^10.9.2"
-=======
     "@prisma/client": "^6.14.0",
     "prisma": "^6.14.0"
->>>>>>> b19785747b57c5c45d6e970cad827c7cd831ccc9
   }
 }
