@@ -13,7 +13,11 @@ Athiphat Niamsot
 ```bash
 ```
 ## Frist time
-
+```
+npx prisma init --datasource-provider postgresql
+npx prisma generate
+npx prisma db push
+```
 
 ## Running
 ### Database
