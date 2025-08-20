@@ -40,7 +40,6 @@ npx prisma studio
     3.2 connect db ชื่อตารางเปลี่ยนข้อมูลล่าสุด
 
 ### Nomal
-  ## Develop 
 ```bash
 npx prisma generate
 ```
