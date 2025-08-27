@@ -42,6 +42,8 @@ npx prisma studio
 ```bash
 npx prisma generate
 ```
-
-
-
+####  Run this project
+```bash
+node dist/server.js
+npm run build
+```
