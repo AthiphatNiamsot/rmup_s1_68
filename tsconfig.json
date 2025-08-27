@@ -1,0 +1,12 @@
+{
+    "buildOptions": {
+        "target": "ES2017",
+        "module": "commonjs",
+        "outDir": "./dist",
+        
+    },
+    "include": [
+        "app/*.ts",
+    ],
+
+}

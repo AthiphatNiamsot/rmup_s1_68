@@ -13,8 +13,8 @@ app.get("/about", (c) => {
 });
 app.get("/profile", () => {
    // logic
-   const profile = prisma.profile.findMany();
-   return profile;
+   const profiles = prisma.Profile.findMany();
+   return c.text("profiles");
 });
 
 export default app ;
