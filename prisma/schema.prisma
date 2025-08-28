@@ -1,9 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
-  output   = "../node_modules/.prisma/client"
 }
 
 datasource db {
@@ -11,11 +7,11 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Profile {
-  id          String @id @default(uuid())
-  username    String @unique
-  password    String
-  mobile   String @unique 
-  cardId   String @unique 
+model profile {
+  id       String  @id @default(uuid())
+  username String  @unique
+  password String
+  mobile   String  @unique @db.VarChar(10)
+  cardId   String  @unique @db.VarChar(13)
   status   Boolean
 }
