@@ -14,7 +14,7 @@ app.get("/about", (c) => {
 });
 
 app.get("/profile", async (c) => {
-  const profiles = await prisma.profile.findMany();
+const profiles = await prisma.profile.findMany(); // ต้องเล็ก p
   return c.json(profiles); // ส่งข้อมูลจริงออกไปเป็น JSON
 });
 
