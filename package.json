@@ -21,10 +21,17 @@
   },
   "homepage": "https://github.com/AthiphatNiamsot/rmup_s1_68#readme",
   "dependencies": {
+<<<<<<< HEAD
     "@hono/node-server": "^1.19.1",
     "@prisma/client": "^6.15.0",
     "bcrypt": "^6.0.0",
     "hono": "^4.9.6"
+=======
+    "@hono/node-server": "^1.19.0",
+    "@prisma/client": "^6.14.0",
+    "bcrypt": "^6.0.0",
+    "hono": "^4.9.4"
+>>>>>>> 0121f69675cf23f2a72d26909af7da5b972df791
   },
   "devDependencies": {
     "nodemon": "^3.1.10",
