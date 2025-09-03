@@ -1,0 +1,11 @@
+GET http://localhost:3000/profile
+
+POST http://localhost:3000/profile
+
+Content-Type: : application/json
+{
+"username":"fight",
+"password": "notyt55555",
+"mobile": "0838636939",
+"cardId": "1234567785588",
+}

@@ -17,4 +17,11 @@ app.get("/profile", async (c) => {
   return c.json(profile);
 });
 
+app.post("/profile" , async (c) =>  {
+  const body = await c.req.json();
+  return c.json({Message: "Create profile complete"});
+
+});
+
+
 export default app;
