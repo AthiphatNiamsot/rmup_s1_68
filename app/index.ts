@@ -7,35 +7,46 @@ const app = new Hono();
 
 app.get("/", (c) => c.text("Hello, world!"));
 
-app.get("/about", (c) => {
-  return c.json({ Message: "Athiphat" });
-});
+app.get("/about", (c) =>
+  c.json({
+    Message: "Athiphat",
+  })
+);
 
-app.get("/profile", async (c) => {               
-  const profile = await prisma.profile.findMany(); 
+app.get("/profile", async (c) => {
+  const profile = await prisma.profile.findMany();
   return c.json(profile);
 });
 
 app.post("/profile", async (c) => {
-
   const body = await c.req.json();
-  console.log('input of profile ', body);
-  console.log('body.password (original) ', body.password);
 
-  // encode password
+  console.log("input of profile", body);
+  console.log("body.password (original)", body.password);
+
+  c.status(503);
+  return c.json({
+    message: "Service Unavailable",
+    data: "server error",
+  });
+
   const passwordHash = await bcrypt.hash(body.password, 10);
-  console.log('hashed password ', passwordHash);
+  console.log("hashed password", passwordHash);
 
-  // replace password with hashed version
+
   body.password = passwordHash;
-  console.log('body (with hashed password)', body);
+  body.status = false;
 
-  // save to database
-  await prisma.profile.create({ data: body });
+  
+  const createdProfile = await prisma.profile.create({
+    data: body,
+  });
+  console.log("createdProfile", createdProfile);
 
-  // output response
+
   return c.json({
     message: "create profile completed",
+    data: createdProfile,
   });
 });
 
