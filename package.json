@@ -20,8 +20,9 @@
     "url": "https://github.com/AthiphatNiamsot/rmup_s1_68/issues"
   },
   "homepage": "https://github.com/AthiphatNiamsot/rmup_s1_68#readme",
-  "dependencies": {
-<<<<<<< HEAD
+  "dependencies": 
+  {,
+    
     "@hono/node-server": "^1.19.1",
     "@prisma/client": "^6.15.0",
     "bcrypt": "^6.0.0",
