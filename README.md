@@ -40,11 +40,9 @@ npx prisma studio
 
 ### Nomal
 ```bash
-npx prisma generate
-```
-#### Run Server
-```bash
 node dist/server.js
+npm run dev
+npm run build
 ```
 
 
