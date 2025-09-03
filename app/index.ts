@@ -9,13 +9,12 @@ app.get("/", (c) => c.text("Hello, world!"));
 
 app.get("/about", (c) => {
   return c.json({
-    Message: "Athiphat",
-  });
+    Message: "Athiphat", });
 });
 
-app.get("/profile", async (c) => {
-const profiles = await prisma.profile.findMany(); // ต้องเล็ก p
-  return c.json(profiles); // ส่งข้อมูลจริงออกไปเป็น JSON
+app.get("/profile", async (c) => {               
+  const profile = await prisma.profile.findMany(); 
+  return c.json(profile);
 });
 
 export default app;

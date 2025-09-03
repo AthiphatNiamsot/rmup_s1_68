@@ -1,7 +1,25 @@
 {
+  "name": "rmup_s1_68",
+  "version": "1.0.0",
+  "description": "Athiphat Niamsot",
+  "main": "index.js",
+  "type": "commonjs",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "dev": "ts-node-dev --respawn --transpile-only app/server.ts",
+    "start": "node dist/index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AthiphatNiamsot/rmup_s1_68.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AthiphatNiamsot/rmup_s1_68/issues"
+  },
+  "homepage": "https://github.com/AthiphatNiamsot/rmup_s1_68#readme",
   "dependencies": {
     "@hono/node-server": "^1.19.0",
     "@prisma/client": "^6.14.0",
@@ -11,6 +29,7 @@
     "nodemon": "^3.1.10",
     "prisma": "^6.14.0",
     "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.2"
   }
 }
