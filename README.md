@@ -38,7 +38,7 @@ npx prisma studio
     3.1 `npx prisma studio` ชื่อตารางเปลี่ยน ไม่แต่ขึ้น error
     3.2 connect db ชื่อตารางเปลี่ยนข้อมูลล่าสุด
 
-### Nomal
+### Running Server
 ```bash
 node dist/server.js
 npm run dev
