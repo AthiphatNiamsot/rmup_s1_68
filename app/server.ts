@@ -1,9 +1,10 @@
+// server.ts
 import { serve } from "@hono/node-server";
-import app from "./index";  
+import app from "./index";  // หรือ "./app" ตามไฟล์จริงของคุณ
 
-
-const port = Number(process.env.PORT ?? 3000)
-
-serve(app, (info) => {
-  console.log("Running server on port", info.port);
+serve({
+  fetch: app.fetch,
+  port: 3000,
 });
+
+console.log("🚀 Server running at http://localhost:3000");
