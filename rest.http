@@ -11,8 +11,8 @@ Content-Type: application/json
 
 
 {
-    "username": "demo",
-    "password": "1234",
-    "mobile": "0836831234",
-    "cardId": "112241524145",
+  "username": "demo",
+  "password": "123456",
+  "mobile": "0891234567",
+  "cardId": "1234567890123"
 }
