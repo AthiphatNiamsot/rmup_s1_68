@@ -1,10 +1,6 @@
-// server.ts
-import { serve } from "@hono/node-server";
-import app from "./index"; 
+import { serve } from '@hono/node-server'
+import app from './index';
 
-serve({
-  fetch: app.fetch,
-  port: 3000,
-});
-
-console.log("🚀 Server running at http://localhost:3000");
+serve(app, (info) => {
+    console.log(`Server is running on http://localhost:${info.port}`);
+})

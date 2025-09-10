@@ -1,53 +1,69 @@
 import { Hono } from "hono";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
 import * as bcrypt from "bcrypt";
 
+// import { PrismaClient } from "../generated/prisma/client";
+
 const prisma = new PrismaClient();
+
 const app = new Hono();
-
-app.get("/", (c) => c.text("Hello, world!"));
-
-app.get("/about", (c) =>
-  c.json({
-    Message: "Athiphat",
-  })
-);
-
+app.get('/', (c) => c.text('Hono!'));
+app.get('/about', (c) => { return c.json({ message: "Tanapat Nunkhong " }) });
 app.get("/profile", async (c) => {
-  const profile = await prisma.profile.findMany();
-  return c.json(profile);
+    // logic
+    const profile = await prisma.profile.findMany();
+    return c.json(profile);
 });
-
 app.post("/profile", async (c) => {
-  const body = await c.req.json();
+    //logic to create a new profile
+    const body = await c.req.json();
+    console.log('input of profile', body);
+    console.log('body.password(original)', body.password);
 
-  console.log("input of profile", body);
-  console.log("body.password (original)", body.password);
+   
+    
+    // ตรวจสอบว่ามี mobile หรือ cardId ซ้ำ
+    const existingProfile = await prisma.profile.findFirst({
+        where: {
+            OR: [
+                { mobile: body.mobile },
+                { cardId: body.cardId }
+            ]
+        }
+    });
 
-  c.status(503);
-  return c.json({
-    message: "Service Unavailable",
-    data: "server error",
-  });
+    if (existingProfile) {
+        let duplicatedFields = [];
+        if (existingProfile.mobile === body.mobile) duplicatedFields.push('mobile');
+        if (existingProfile.cardId === body.cardId) duplicatedFields.push('cardId');
 
-  const passwordHash = await bcrypt.hash(body.password, 10);
-  console.log("hashed password", passwordHash);
+        return c.json(
+            { message: `ข้อมูลซ้ำ: ${duplicatedFields.join(', ')}` },
+            500
+        );
+    }
+    
+
+    //encode password
+    const passwordHash = await bcrypt.hash(body.password,18);
+    console.log('hash.password(after)',passwordHash);
+    body.password = passwordHash;
+    console.log('body.password(replace)',body);
 
 
-  body.password = passwordHash;
-  body.status = false;
+    //save to db
+    body.status= false;
+    const result = await prisma.profile.create({
+        data:body
+    });
 
-  
-  const createdProfile = await prisma.profile.create({
-    data: body,
-  });
-  console.log("createdProfile", createdProfile);
-
-
-  return c.json({
-    message: "create profile completed",
-    data: createdProfile,
-  });
+   
+    // output
+     c.status(200);
+    return c.json({
+        message: "create profile completed",
+        data: result
+    })
 });
 
 export default app;
