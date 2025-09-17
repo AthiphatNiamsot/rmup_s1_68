@@ -1,6 +1,8 @@
 import * as crypto from "crypto";
 
 const algorithm = "aes-256-cbc";
+const key = `12345678901234567890123456789012`;
+
 
 if (!process.env.SECRET_KEY) {
   throw new Error("❌ SECRET_KEY ไม่ถูกกำหนดใน environment variables!");
